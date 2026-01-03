@@ -1,0 +1,21 @@
+process = ["P1", "P2", "P3"]
+burst = [24, 3, 3]
+time_quantum = 4
+
+remaining = burst.copy()
+time = 0
+
+while True:
+    done = True
+    for i in range(len(process)):
+        if remaining[i] > 0:
+            done = False
+            if remaining[i] > time_quantum:
+                time += time_quantum
+                remaining[i] -= time_quantum
+            else:
+                time += remaining[i]
+                remaining[i] = 0
+                print(process[i], "completed at time", time)
+    if done:
+        break
