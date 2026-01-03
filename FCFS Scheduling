@@ -1,0 +1,9 @@
+process = [1, 2, 3]
+burst_time = [5, 3, 8]
+time = 0
+
+print("Process\tBurst Time\tCompletion Time")
+
+for i in range(len(process)):
+    time += burst_time[i]
+    print("P", process[i], "\t", burst_time[i], "\t\t", time)
