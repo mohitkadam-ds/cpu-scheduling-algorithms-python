@@ -1,0 +1,15 @@
+process = ["P1", "P2", "P3", "P4"]
+burst = [6, 8, 7, 3]
+
+for i in range(len(burst)):
+    for j in range(i + 1, len(burst)):
+        if burst[i] > burst[j]:
+            burst[i], burst[j] = burst[j], burst[i]
+            process[i], process[j] = process[j], process[i]
+
+time = 0
+
+print("Process\tBurst Time\tWaiting Time")
+for i in range(len(process)):
+    print(process[i], "\t", burst[i], "\t\t", time)
+    time += burst[i]
